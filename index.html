@@ -212,7 +212,7 @@ I’m a curious learner, always eager to grow and create with purpose.</p>
             <a href="images/jahanvi_3_7_25_newbest (1).pdf" download class="btn btn2">Download Resume</a>
           </div>
           <div class="contact-right">
-            <form>
+            <form name="YOUR_FORM_NAME">
               <input type="text" name="Name" placeholder="Your Name" required>
               <input type="email" name="Email" placeholder="Your Email" required>
               <textarea name="Message" rows="6" placeholder="Your Message" required></textarea>
@@ -224,6 +224,7 @@ I’m a curious learner, always eager to grow and create with purpose.</p>
        
        
             </form>
+           
           </div>
          </div>
        <br>
@@ -233,5 +234,19 @@ I’m a curious learner, always eager to grow and create with purpose.</p>
        <br>
       </div>
  </div>
+ <script>
+	const scriptURL = 'https://script.google.com/macros/s/AKfycbx_ArVjoUiTRFrdSgKq3nGnh2mO2uKd3QJdCc6Q_WcbHCz7Zwb0__25tXYT7ba55_vV/exec'
+	const form = document.forms['YOUR_FORM_NAME']
+
+	form.addEventListener('submit', e => {
+		e.preventDefault()
+		fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+			.then(response => response.json())
+			.then(response => console.log('Success!', response))
+			.catch(error => console.error('Error!', error.message))
+	})
+</script>
+
 </body>
+
 </html>
